@@ -1,0 +1,11 @@
+version: '3'
+services:
+  jenkins:
+    container_name: jenkins
+    image: jenkins-ansible
+    build:
+      context: jenkins-ansible
+    networks:
+      - net
+networks:
+  net:
