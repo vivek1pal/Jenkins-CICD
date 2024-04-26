@@ -2,9 +2,16 @@ version: '3'
 services:
   jenkins:
     container_name: jenkins
-    image: jenkins-ansible
+    image: jenkins/jenkins  #jenkins image from docker hub, need to pull image and build from the image
+    ports:
+      - "8080:8080"
+    networks:
+      - net
+  remote_host:
+    container_name: remote-host
+    image: remote-host
     build:
-      context: jenkins-ansible
+      context: centos7 #the folder where our Dockerfile is available
     networks:
       - net
 networks:
