@@ -5,6 +5,8 @@ services:
     image: jenkins/jenkins  #jenkins image from docker hub, need to pull image and build from the image
     ports:
       - "8080:8080"
+    volumes:
+      - "$PWD/jenkins-home:var/jenkins_home"
     networks:
       - net
   remote_host:
